@@ -372,7 +372,7 @@ def main():
             # == prepare condition ==
             if cfg.get("condition_config", None) is not None:
                 # condition for i2v & v2v
-                x_0, cond = prepare_visual_condition(x, cfg.condition_config, model_ae)
+                x_0, cond = prepare_visual_condition(x, cfg.condition_config.copy(), model_ae)
                 cond = pack(cond, patch_size=cfg.get("patch_size", 2))
                 inp["cond"] = cond
             else:
